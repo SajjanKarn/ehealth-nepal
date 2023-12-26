@@ -1,9 +1,12 @@
 "use client";
 import { Navigation } from "@/components/Navigation.component";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Register() {
+  const router = useRouter();
   const [role, setRole] = useState("Doctor");
+  const [error, setError] = useState(null);
   const [credentials, setCredentials] = useState({
     name: "",
     age: "",
@@ -28,40 +31,89 @@ export default function Register() {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(credentials);
+    try {
+      if (role === "Doctor") {
+        const doctor = await fetch(`http://localhost:3000/api/doc/register`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: credentials.name,
+            age: credentials.age,
+            gender: credentials.gender,
+            experience: credentials.experience,
+            specialization: credentials.specialization,
+            email: credentials.email,
+            password: credentials.password,
+          }),
+        });
+        const doctorResponse = await doctor.json();
+        if (doctor.ok) {
+          router.push("/auth/login");
+        } else {
+          setError(doctorResponse.error);
+        }
+      } else {
+        const patient = await fetch(`http://localhost:3000/api/pat/register`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: credentials.name,
+            age: credentials.age,
+            gender: credentials.gender,
+            address: credentials.address,
+            phone: credentials.phone,
+            email: credentials.email,
+            password: credentials.password,
+          }),
+        });
+        const patientResponse = await patient.json();
+        if (patient.ok) {
+          router.push("/auth/login");
+        } else {
+          setError(patientResponse.error);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <div>
       <div className="container">
+        <h3>Register as {role}</h3>
+
         <div className="card">
-          <h3>Register as {role}</h3>
           <button class="btn btn-secondary" onClick={toggleRole}>
             Register as {role === "Doctor" ? "Patient" : "Doctor"}
           </button>
           <form onSubmit={handleSubmit}>
-            <div class="input-group">
+            <div className="input-group">
               <label>Enter Your Name</label>
               <input
                 type="text"
                 placeholder="Enter Your Name"
-                class="form-control"
+                className="form-control"
                 name="name"
                 onChange={handleInputChange}
                 value={credentials.name}
               />
-              <p class="form-control-subheading">
+              <p className="form-control-subheading">
                 We won't share your details to anyone.
               </p>
             </div>
-            <div class="input-group">
+            <div className="input-group">
               <input
                 type="number"
                 placeholder="age: Ex: 17"
-                class="form-control"
+                className="form-control"
                 name="age"
                 onChange={handleInputChange}
                 value={credentials.age}
@@ -146,7 +198,7 @@ export default function Register() {
             </div>
             <div class="input-group">
               <input
-                type="text"
+                type="password"
                 placeholder="Your Password"
                 className="form-control"
                 name="password"
@@ -154,6 +206,7 @@ export default function Register() {
                 value={credentials.password}
               />
             </div>
+            {error && <div class="alert alert-dark">{error}</div>}
             <button class="btn btn-primary" type="submit">
               Register
             </button>
