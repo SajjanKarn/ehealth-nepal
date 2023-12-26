@@ -36,7 +36,6 @@ export default function Register() {
 
   return (
     <div>
-      <Navigation />
       <div className="container">
         <div className="card">
           <h3>Register as {role}</h3>

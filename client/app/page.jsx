@@ -8,20 +8,17 @@ export default function Home() {
   return (
     <main>
       
-      {/* Navigation */}
-      <Navigation />
-
       <div className={styles.container}>
 
         <h1>Welcome To EHealth.</h1>
 
         <div className={styles.action}>
-              <Button variant="primary" >
+              <button className="btn btn-primary" >
                 Register
-              </Button>
-              <Button variant="secondary">
+              </button>
+              <button className="btn btn-info">
                 Login
-              </Button>
+              </button>
         </div>
 
         <div>

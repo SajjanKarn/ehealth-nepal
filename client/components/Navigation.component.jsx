@@ -9,8 +9,12 @@ export const Navigation = () => {
       <div className="logo">EHealth</div>
 
       <ul className="nav-links">
-        <li>Home</li>
-        <li>Home</li>
+      <li>
+          <Link href={"/"} >Home</Link>
+        </li>
+        <li>
+          <Link href={"/assistant"} >Assistant</Link>
+        </li>
         <li>Home</li>
         <li>Home</li>
         <li>Home</li>

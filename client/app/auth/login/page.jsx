@@ -3,7 +3,6 @@ import { Navigation } from "@/components/Navigation.component";
 export default function Login() {
   return (
     <div>
-      <Navigation />
       <div className="container">
         <div className="card">
           <div class="input-group">

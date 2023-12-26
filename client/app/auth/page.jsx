@@ -5,7 +5,6 @@ import { Navigation } from "@/components/Navigation.component";
 export default function Auth() {
   return (
     <div className={styles.auth_container}>
-      <Navigation />
     </div>
   );
 }
