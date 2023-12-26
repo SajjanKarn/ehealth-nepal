@@ -1,5 +1,430 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --primary: #ec058e;
+  --secondary: #30332e;
+  --info: #0eb1d2;
+  --warning: #e0bd2b;
+  --error: #ba3b46;
+  --dark: #080708;
+  --lead: #7f878e;
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  border: 0.3px solid #cacec8;
+}
+/* ---------- globals -------- */
+.container {
+  padding: 0px 25px;
+}
+
+.mx-1 {
+  margin: 1rem 0;
+}
+
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.9rem;
+}
+h3 {
+  font-size: 1.7rem;
+}
+h4 {
+  font-size: 1.5rem;
+}
+h5 {
+  font-size: 1.3rem;
+}
+h6 {
+  font-size: 1rem;
+}
+
+.main-section {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.heading-components > h1 {
+  margin: 10px 0px;
+}
+.variant-headings > p {
+  display: inline-block;
+  margin: 10px 10px;
+  font-size: 1.1rem;
+}
+
+.badges hr {
+  margin: 10px 0px;
+}
+
+.badges .badge {
+  margin: 10px 5px;
+}
+
+.buttons .btn {
+  margin: 10px 5px;
+}
+
+.cards .card {
+  margin: 10px 0px;
+}
+
+.input-group {
+  margin: 20px 0px;
+}
+
+.modals hr {
+  margin-bottom: 20px;
+}
+
+.navbars .nav {
+  margin: 10px 0px;
+}
+
+.breadcrumb {
+  margin: 10px 0px;
+}
+
+/* ---------- header text colors --------- */
+.text-lead {
+  color: #7f878e;
+}
+.text-primary {
+  color: var(--primary);
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
+.text-info {
+  color: var(--info);
+}
+
+.text-warning {
+  color: var(--warning);
+}
+
+.text-error {
+  color: var(--error);
+}
+
+.text-dark {
+  color: var(--dark);
+}
+
+/* ----------- background color ------------- */
+.bg-primary {
+  background-color: var(--primary) !important;
+  color: #fff;
+}
+
+.bg-secondary {
+  background-color: var(--secondary) !important;
+  color: #fff;
+}
+
+.bg-info {
+  background-color: var(--info) !important;
+  color: #fff;
+}
+
+.bg-warning {
+  background-color: var(--warning) !important;
+  color: #fff;
+}
+
+.bg-error {
+  background-color: var(--error) !important;
+  color: #fff;
+}
+
+.bg-dark {
+  background-color: var(--dark) !important;
+  color: #fff;
+}
+
+/* ---------- alert -------- */
+.alert {
+  padding: 20px;
+  margin: 10px 0px;
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.alert-secondary {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.alert-secondary {
+  background-color: var(--secondary);
+  color: #fff;
+}
+
+.alert-info {
+  background-color: var(--info);
+  color: #fff;
+}
+
+.alert-warning {
+  background-color: var(--warning);
+  color: #fff;
+}
+
+.alert-error {
+  background-color: var(--error);
+  color: #fff;
+}
+
+.alert-dark {
+  background-color: var(--dark);
+  color: #fff;
+}
+
+/* ---------- badge -------- */
+.badge {
+  background-color: var(--secondary);
+  color: #fff;
+  padding: 5px 10px;
+  display: inline-block;
+  border-radius: 20px;
+}
+
+/* ---------- buttons -------- */
+.btn {
+  padding: 10px;
+  border: none;
+  outline: none;
+  background-color: var(--primary);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transition: 0.2s;
+  opacity: 0.8;
+}
+
+.btn-rounded {
+  border-radius: 50px;
+}
+
+.btn-primary {
+  background-color: var(--primary) !important;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: var(--secondary) !important;
+  color: #fff;
+}
+
+.btn-info {
+  background-color: var(--info) !important;
+  color: #fff;
+}
+
+.btn-warning {
+  background-color: var(--warning) !important;
+  color: #fff;
+}
+
+.btn-error {
+  background-color: var(--error) !important;
+  color: #fff;
+}
+
+.btn-dark {
+  background-color: var(--dark) !important;
+  color: #fff;
+}
+
+/* ---------- card -------- */
+.card {
+  max-width: 100vw;
+  padding: 15px 10px;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+.card-title {
+  font-size: 1.5rem;
+  margin: 10px 0px;
+  font-weight: 700;
+}
+.card-body {
+  font-weight: lighter;
+}
+
+/* ---------- spinner -------- */
+.spinners .spinner {
+  margin: 10px 5px;
+}
+.spinner {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  border-radius: 50%;
+  border: solid 5px transparent;
+  border-bottom-color: var(--primary);
+  animation: animate_spinner 0.4s linear infinite;
+}
+
+.spinner-primary {
+  border-bottom-color: var(--primary);
+}
+
+.spinner-secondary {
+  border-bottom-color: var(--secondary);
+}
+.spinner-info {
+  border-bottom-color: var(--info);
+}
+.spinner-warning {
+  border-bottom-color: var(--warning);
+}
+.spinner-error {
+  border-bottom-color: var(--error);
+}
+.spinner-dark {
+  border-bottom-color: var(--dark);
+}
+
+@keyframes animate_spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- input -------- */
+.input-group {
+  display: block;
+}
+
+.input-group label {
+  display: block;
+  color: var(--lead);
+}
+.form-control {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid var(--lead);
+  outline: none;
+}
+.form-control-subheading {
+  font-size: 0.9rem;
+  margin: 5px 0px;
+}
+
+/* ---------- modal -------- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.modal-close-btn {
+  text-align: right;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.modal-close-btn:hover {
+  opacity: 0.6;
+}
+
+.modal-title {
+  font-size: 2rem;
+  margin: 10px 0px;
+  font-weight: 700;
+}
+
+.modal-body {
+  font-weight: lighter;
+}
+
+/* ---------- navbar -------- */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--primary);
+  padding: 20px 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-brand {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* ---------- breadcrumb -------- */
+
+.breadcrumb ol {
+  display: flex;
+  list-style: none;
+}
+
+.breadcrumb ol li {
+  margin: 0px 5px;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.breadcrumb ol li:hover {
+  opacity: 0.6;
+}
+
+.breadcrumb ol li::after {
+  content: "/";
+  color: var(--secondary);
+  margin: 0px 5px;
+}
+
+.breadcrumb-active {
+  color: var(--secondary) !important;
+}
+
+.breadcrumb-active::after {
+  content: "" !important;
+}
+
+/* ---------- footer -------- */
+.footer {
+  background-color: var(--dark);
+  color: #fff;
+  padding: 20px 30px;
+  text-align: center;
 }
