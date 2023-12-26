@@ -51,3 +51,13 @@ exports.login_doctor = async (req, res) => {
     password: undefined,
   });
 };
+
+exports.get_doctors = async (req, res) => {
+  try {
+    const doctors = await Doctor.find();
+
+    return res.json({ doctors });
+  } catch (error) {
+    return res.json({ error: error.message, success: false });
+  }
+};

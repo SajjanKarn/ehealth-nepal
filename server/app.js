@@ -13,6 +13,9 @@ app.use(express.json());
 app.use(morgan("tiny"));
 
 // routes
+app.get("/", (_, res) => {
+  res.send("EHealth App Api.")
+})
 app.use("/api/doc", require("./routes/doctorAuth"));
 app.use("/api/pat", require("./routes/patientAuth"));
 
