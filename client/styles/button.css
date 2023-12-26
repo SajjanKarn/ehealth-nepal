@@ -1,0 +1,18 @@
+button {
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+
+button:hover {
+    filter: drop-shadow(10);
+    transform: scale(1.1);
+}
