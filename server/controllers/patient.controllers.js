@@ -53,3 +53,15 @@ exports.login_patient = async (req, res) => {
     password: undefined,
   });
 };
+
+exports.get_patients = async (req, res) => {
+  try {
+
+    const patients = await Patient.find();
+
+    return res.json({ patients })
+    
+  } catch (error) {
+    return res.json({ error: error.message, success: false })
+  }
+}
